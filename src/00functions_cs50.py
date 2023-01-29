@@ -30,14 +30,14 @@ def print_menu():
 
 
 # https://docs.python.org/3/library/functions.html?highlight=input#input
-def input1():
+def input1() -> None:
     name: str = input("what name? ")
-    return print('hi', name, end='')
+    print('hi', name, end='')
 
 #input1()
 
 # https://docs.python.org/3/library/string.html#formatspec
-def formatstring(name="DEN"):
+def formatstring(name: str ="DEN") -> None:
     print(f'hi {name} ', ) # format string
     print(int(input("x?")) + int(input("y?")))
     print(f"{int(input('x?')):,.2f}") # add commas to big numbers with format string
@@ -74,7 +74,7 @@ def test_return():
     print(f'{x} squared is {x*x}')
     print(f'{x} squared is {squared(x)}')
 
-def squared(n):
+def squared(n: int) -> int:
     # return n*n
     # return n ** 2
     return pow(n, 2)
