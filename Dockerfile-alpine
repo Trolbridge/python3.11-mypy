@@ -21,7 +21,7 @@ RUN set -eux; \
 	;
 
 ENV GPG_KEY 7169605F62C751356D054A26A821E680E5FA6305
-ENV PYTHON_VERSION 3.11.1
+ENV PYTHON_VERSION 3.12.0a4
 
 RUN set -eux; \
 	\
@@ -148,15 +148,5 @@ RUN set -eux; \
 	rm -f get-pip.py; \
 	\
 	pip --version
-
-RUN cp /usr/share/zoneinfo/America/Detroit /etc/localtime \
-    \
-    echo "America/Detroit" > /etc/timezone \
-    \
-    apk del tzdata
-
-# install dependencies
-COPY ./requirements.txt ./
-RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
 CMD ["python3"]
